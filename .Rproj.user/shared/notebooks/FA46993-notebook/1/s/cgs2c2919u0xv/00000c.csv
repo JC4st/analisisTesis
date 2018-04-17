@@ -1,0 +1,4 @@
+"0","# Paso 2 obtencion de datos"
+"0","# https://goo.gl/6EKsFg"
+"0","rm(datos) # remover previo"
+"0","(my_sheets <- gs_ls())"

@@ -1,0 +1,4 @@
+"0","```r
+#  View the last 6 rows of data
+tail(datos)
+```"

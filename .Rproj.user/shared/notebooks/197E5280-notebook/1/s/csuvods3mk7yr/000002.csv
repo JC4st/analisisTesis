@@ -1,0 +1,4 @@
+"0","```r
+# View the first 6 rows of data
+head(datos)
+```"

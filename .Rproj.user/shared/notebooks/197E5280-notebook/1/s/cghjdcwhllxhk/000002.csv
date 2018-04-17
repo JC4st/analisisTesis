@@ -1,0 +1,341 @@
+"0","```r
+# # view a summary
+summary(datos)
+```"
+"1","    nombre            apellido              ID           
+ Length:131         Length:131         Length:131        
+ Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character  
+                                                         
+                                                         
+                                                         
+                                                         
+      HC                   sexo         edad       fechaDeNacimiento   
+ Length:131         femenino :88   Min.   :18.00   Min.   :1924-11-20  
+ Class :character   masculino:43   1st Qu.:38.50   1st Qu.:1950-02-09  
+ Mode  :character                  Median :52.00   Median :1963-04-28  
+                                   Mean   :51.79   Mean   :1962-12-09  
+                                   3rd Qu.:64.50   3rd Qu.:1975-09-03  
+                                   Max.   :90.00   Max.   :1996-12-12  
+                                                                       
+ fechaDeIngreso       fechaDiagnosticoEI    fechaEgreso        
+ Min.   :2012-05-26   Min.   :2012-05-26   Min.   :2012-02-05  
+ 1st Qu.:2014-03-14   1st Qu.:2014-03-13   1st Qu.:2014-05-08  
+ Median :2015-06-06   Median :2015-06-05   Median :2015-08-30  
+ Mean   :2015-04-16   Mean   :2015-04-20   Mean   :2015-06-14  
+ 3rd Qu.:2016-07-01   3rd Qu.:2016-06-08   3rd Qu.:2016-09-09  
+ Max.   :2017-09-28   Max.   :2017-07-18   Max.   :2017-11-27  
+                      NA's   :1            NA's   :1           
+   CIP         CLI         ERY        GEN         LVX        LNZ     
+ -   :  1   <=.25:121   <=.25:108   <=.5:122   <=.12:86   1    : 16  
+ <=.5:118   2    :  1   .5   :  2   4   :  1   <=.25: 2   2    :111  
+ 1   :  1   >4   :  5   4    :  1   >8  :  4   .25  :33   <=0.5:  1  
+ >4  :  5   >=8  :  1   >4   : 14   >=16:  1   1    : 1   NA's :  3  
+ >=8 :  1   NA's :  3   >=8  :  3   NA's:  3   4    : 5              
+ NA's:  5               NA's :  3              >4   : 1              
+                                               NA's : 3              
+   MNO         MFX        NIT        QDA        RIF        TEC     
+ -   :  2   -    :  1   -   : 2   -    : 2   1    :  2   1   :  2  
+ <=.5:119   <=.25:121   256 : 1   .5   :24   16   :  1   <=.5:121  
+ NA's: 10   1    :  3   32  :28   1    : 1   <=.5 :122   <=1 :  3  
+            2    :  2   64  : 2   <=.25:94   <=0.5:  1   NA's:  5  
+            4    :  1   <=16:89   NA's :10   >16  :  2             
+            NA's :  3   NA's: 9              NA's :  3             
+                                                                   
+   TCY        SXT        VAN          OXA     endocarditis
+ -   :  1   <=.5:120   1   :92   <=.25  :61   ?   : 2     
+ 2   :  1   <=10:  5   2   : 2   .5     :34   NO  :89     
+ <=1 :103   NA's:  6   <=.5:34   >2     :27   SI  :29     
+ >8  : 17              NA's: 3   0,5    : 1   NA's:11     
+ NA's:  9                        1      : 1               
+                                 (Other): 4               
+                                 NA's   : 3               
+ endocarditisAsociadaAlCuidadoDeLaSalud endocarditisNosocomial
+ NO  : 10                               NO  : 23              
+ No  :  1                               No  :  1              
+ SI  : 19                               SI  :  6              
+ NA's:101                               NA's:101              
+                                                              
+                                                              
+                                                              
+ endocarditisDeLaComunidad    tipoBacteremia           origenBacteremia
+ NO  : 19                  Primaria  :15     Asociada a cateter:30     
+ No  :  1                  SI        : 1     Tejidos blandos   :10     
+ SI  :  9                  Secundaria:70     tejidos blandos   :10     
+ Si  :  1                  primaria  :19     Espondilodiscitis : 5     
+ NA's:101                  secundaria:24     ISO               : 4     
+                           secundria : 1     (Other)           :36     
+                           NA's      : 1     NA's              :36     
+ adquiridaComunidad asocaidaAlCuidadoSanitario hospitalizacionPrevia90D
+ NO  :97            NO  :21                    NO  :56                 
+ SI  :20            SI  :97                    SI  :74                 
+ NA's:14            NA's:13                    NA's: 1                 
+                                                                       
+                                                                       
+                                                                       
+                                                                       
+   procedencia inmunosupresion infeccionVIH cancer   drogasIV  
+ HOGAR   : 1   NO:65           NO:130       NO:111   NO  :130  
+ Hogar   :76   No: 1           No:  1       No:  1   NA's:  1  
+ Hospital:35   SI:65                        SI: 19             
+ hogar   :13                                                   
+ hospital: 5                                                   
+ NA's    : 1                                                   
+                                                               
+ inmunosupresores cxPrevia cxCardiaca fechaCxCardiaca     
+ NO:108           NO:80    NO:106     Min.   :2012-07-12  
+ No:  1           No: 1    No:  1     1st Qu.:2013-11-14  
+ SI: 22           SI:50    SI: 23     Median :2014-06-10  
+                           si:  1     Mean   :2014-09-08  
+                                      3rd Qu.:2016-01-04  
+                                      Max.   :2017-05-20  
+                                      NA's   :111         
+                                                           tipoCxCardiaca
+ RVM                                                              :  4   
+ NO                                                               :  2   
+ Recambio valvular tricuspideo + resecci<U+00F3>n de masa cardiaca:  2   
+ Ablaciones M<U+00FA>ltiples                                      :  1   
+ Acomodaci<U+00F3>n electrodos/decorticacion pulmonar             :  1   
+ (Other)                                                          : 16   
+ NA's                                                             :105   
+ hemodialisis dispositivoIntracardiaco dispositivosIntravasculares
+ NO:99        NO  :116                 NO:65                      
+ No: 1        No  :  1                 No: 1                      
+ SI:31        SI  : 13                 SI:65                      
+              NA's:  1                                            
+                                                                  
+                                                                  
+                                                                  
+ diabetes enferemdadRenalCronica HTAcronica EPOC     fallaCardiaca
+ NO:93    NO:84                  NO  :70    NO:125   NO:99        
+ No: 1    No: 1                  SI  :59    No:  1   No: 1        
+ SI:37    SI:46                  Si  : 1    SI:  5   SI:31        
+                                 NA's: 1                          
+                                                                  
+                                                                  
+                                                                  
+ cirrosisHepatica childPugh  endocarditisPrevia
+ NO  :119         A   :  1   NO:128            
+ SI  : 10         B   :  6   No:  2            
+ NA's:  2         C   :  2   SI:  1            
+                  NO  :  3                     
+                  NA's:119                     
+                                               
+                                               
+   haceCuantoLaEndocarditis cardiopatiaCongenita
+ 10 A<U+00D1>OS:  1         NO  :117            
+ NO            :  2         No  :  1            
+ NA's          :128         SI  : 10            
+                            NA's:  3            
+                                                
+                                                
+                                                
+            tipoCardiopatiaCongenita ABprevio
+ NO                     :  4         NO:95   
+ Aorta bivalva          :  2         No: 1   
+ CIA                    :  2         SI:35   
+ Cardiomiopatia dilatada:  2                 
+ AORTA BIVALVA          :  1                 
+ (Other)                :  3                 
+ NA's                   :117                 
+                       ABrecibido90D fiebre   fenomenosVasculares
+ piperacilina-tazobactam      : 3    NO: 25   17/01/2014:  1     
+ piperacilina-tazobactam/VANCO: 3    SI:105   NO        :112     
+ Ertapenem                    : 2    Si:  1   No        :  1     
+ GENTAMICINA                  : 2             SI        : 17     
+ Oxacilina/clindamicina       : 2                                
+ (Other)                      :22                                
+ NA's                         :97                                
+ infartoPulmonarSeptico aneurismaMicotico hemorragiaIntracraneal
+ NO:125                 NO:129            NO:123                
+ No:  1                 No:  1            No:  1                
+ SI:  5                 SI:  1            SI:  7                
+                                                                
+                                                                
+                                                                
+                                                                
+ hemorragiaConjuntival lesionesDeJaneway embolismosArterialesMayores
+ NO:128                NO:129            NO:114                     
+ No:  1                No:  1            No:  1                     
+ SI:  2                SI:  1            SI: 16                     
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+ fenomenosInmunologicos glomerulonefritis dodulosDeOsler manchasDeRoth
+ NO:129                 NO:127            NO:130         NO:129       
+ No:  1                 No:  1            No:  1         No:  2       
+ SI:  1                 SI:  3                                        
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+ factorReumatoide      VSG              PCR          ecoTT   
+ 184 : 1          Min.   :  2.00   25     : 6   ?       : 3  
+ <15 : 2          1st Qu.: 32.00   15     : 2   ? Buscar: 1  
+ NO  :34          Median : 62.00   17,5   : 2   NO      :52  
+ NA's:94          Mean   : 65.99   42     : 2   No      : 2  
+                  3rd Qu.:104.00   0,73   : 1   SI      :71  
+                  Max.   :120.00   (Other):66   NA's    : 2  
+                  NA's   :4        NA's   :52                
+   fechaECOTT         vegetacionECOTT tamanoVegetacionEnECOTT  ECOTE   
+ Min.   :2012-05-31   NO  :64         5      :  2             NO  :55  
+ 1st Qu.:2014-05-05   SI  : 8         NO     :  2             SI  :59  
+ Median :2016-02-08   NA's:59         10     :  1             Si  : 1  
+ Mean   :2015-08-10                   13     :  1             NA's:16  
+ 3rd Qu.:2016-11-26                   8      :  1                      
+ Max.   :2017-10-25                   (Other):  2                      
+ NA's   :61                           NA's   :122                      
+   fechaECOTE         vegetacionECOTE tamanoDeVegetacionEnECOTE
+ Min.   :2012-07-03   NO  :54         NO     :11               
+ 1st Qu.:2014-07-04   SI  :22         10     : 2               
+ Median :2015-10-13   Si  : 1         12     : 2               
+ Mean   :2015-07-17   NA's:54         14 y 10: 2               
+ 3rd Qu.:2016-12-18                   4      : 2               
+ Max.   :2017-12-18                   (Other):15               
+ NA's   :73                           NA's   :97               
+ compromisoVMitral compromisoVAortica compromisoVTricuspide
+ NO  :97           NO  :101           NO  :107             
+ No  : 1           SI  :  9           No  :  1             
+ SI  :13           Si  :  1           SI  :  3             
+ NA's:20           NA's: 20           NA's: 20             
+                                                           
+                                                           
+                                                           
+ compromisoVPulmonar compromisoEndomiocardico vegetacionEnDispositivo
+ NO  :110            NO  :103                 NO  :99                
+ No  :  1            No  :  1                 No  : 1                
+ NA's: 20            SI  :  7                 SI  :10                
+                     NA's: 20                 NA's:21                
+                                                                     
+                                                                     
+                                                                     
+ valvulaNativa valvulaProtesica extensionPerianular disfuncionValvular
+ NO  :96       NO  :100         NO  :108            NO  :97           
+ SI  :14       No  :  1         No  :  1            No  : 1           
+ Si  : 1       SI  : 10         NA's: 22            SI  :12           
+ NA's:20       NA's: 20                             NA's:21           
+                                                                      
+                                                                      
+                                                                      
+ parafugaValvular dehiscenciaValvular abscesoIC  fistulaIC 
+ NO  :108         NO  :110            NO  :107   NO  :110  
+ SI  :  1         No  :  1            SI  :  4   SI  :  1  
+ NA's: 22         NA's: 20            NA's: 20   NA's: 20  
+                                                           
+                                                           
+                                                           
+                                                           
+ perforacionValvular hemocultivosControl resultadoHemocultivosControl
+ NO  :109            NO  :49             Negativo: 4                 
+ SI  :  2            SI  :80             Positivo: 5                 
+ NA's: 20            si  : 1             negativo:62                 
+                     NA's: 1             positivo:11                 
+                                         NA's    :49                 
+                                                                     
+                                                                     
+ bacteremiaPersistente manejoQuirurgicoEI      fechaCxEI  
+ NO  :86               NO  :109           02/01/2016:  1  
+ SI  :18               No  :  1           03/02/2015:  1  
+ NA's:27               SI  : 20           03/06/2014:  1  
+                       NA's:  1           04/09/2014:  1  
+                                          05/05/2015:  1  
+                                          (Other)   : 14  
+                                          NA's      :112  
+ tomaDeCultivosDeTejidoDispositivos resultadoDeCultivoDeTejidoDispositivo
+ NO  :27                            SAMR    :  2                         
+ No  : 1                            SAMS    :  6                         
+ SI  :15                            negativo:  7                         
+ NA's:88                            NA's    :116                         
+                                                                         
+                                                                         
+                                                                         
+ empiricoOxacilina empiricoAmpiSulb empiricoMeropenem empiricoPipeTazo
+ NO  :109          NO  :112         NO  :113          NO  :66         
+ SI  : 15          SI  :  8         SI  : 11          SI  :53         
+ NA's:  7          NA's: 11         Si  :  1          NA's:12         
+                                    NA's:  6                          
+                                                                      
+                                                                      
+                                                                      
+ empiricoOtroAB empiricoVancomicina empiricoDaptomicina
+ NO  :108       NO  :38             NO  :121           
+ SI  : 19       SI  :87             No  :  1           
+ NA's:  4       Si  : 1             SI  :  4           
+                NA's: 5             NA's:  5           
+                                                       
+                                                       
+                                                       
+ empiricoAminoglucocido empiricoCipro empiricoRifampicina
+ NO  :118               NO  :71       NO  :112           
+ No  :  1               SI  : 1       No  :  1           
+ SI  :  7               NA's:59       SI  : 13           
+ NA's:  5                             NA's:  5           
+                                                         
+                                                         
+                                                         
+ definitivoOxacilina definitivoAmpicilina definitivoBlactamico
+ NO  :40             NO  :119             NO  :118            
+ SI  :84             SI  :  4             SI  :  5            
+ NA's: 7             NA's:  8             Si  :  1            
+                                          NA's:  7            
+                                                              
+                                                              
+                                                              
+ definitivoVancomicina definitivoDaptomicina definitivoAminoglucosido
+ NO  :103              NO  :110              NO  :120                
+ No  :  1              No  :  1              SI  :  4                
+ SI  : 20              SI  : 14              Si  :  1                
+ NA's:  7              NA's:  6              NA's:  6                
+                                                                     
+                                                                     
+                                                                     
+ definitivoCipro definitivoRifampicina definitivoClindamicina
+ NO  :121        NO  :103              NO  :121              
+ SI  :  2        No  :  1              SI  :  3              
+ NA's:  8        SI  : 21              NA's:  7              
+                 NA's:  6                                    
+                                                             
+                                                             
+                                                             
+ definitivoLinezolid duracionTratamientoAB ingresoUCI
+ NO  :121            14     :70            NO  :63   
+ SI  :  3            42     :18            No  : 1   
+ NA's:  7            28     :15            SI  :66   
+                     21     : 8            NA's: 1   
+                     10     : 2                      
+                     (Other): 8                      
+                     NA's   :10                      
+ abscesoIntraabdominal embolismoSeptico bloqueoCardiacoNuevo
+ NO  :124              NO  :118         NO  :125            
+ No  :  1              No  :  1         No  :  1            
+ SI  :  5              SI  : 11         SI  :  4            
+ NA's:  1              NA's:  1         NA's:  1            
+                                                            
+                                                            
+                                                            
+ fallaCardiacaEI meningitis artritisSeptica shockSeptico osteomielitis
+ NO  :121        NO  :129   NO  :124        NO  :87      NO  :121     
+ No  :  1        NA's:  2   SI  :  5        SI  :42      SI  :  8     
+ SI  :  8                   NA's:  2        NA's: 2      NA's:  2     
+ NA's:  1                                                             
+                                                                      
+                                                                      
+                                                                      
+ muerteRelacionadaEI muerteIntrahospitalaria fechaDeMuerte       
+ NO  :111            NO  :106                Min.   :2013-05-10  
+ No  :  1            No  :  1                1st Qu.:2015-02-16  
+ SI  :  6            SI  : 20                Median :2016-06-01  
+ NA's: 13            NA's:  4                Mean   :2015-11-21  
+                                             3rd Qu.:2016-12-17  
+                                             Max.   :2017-06-17  
+                                             NA's   :112         
+                            causaDeMuerte mortalidad30D mortalidad360D
+ CHOQUE SEPTICO                    :  7   NO  :101      NO  :52       
+ Choque septico                    :  3   SI  : 21      SI  : 2       
+ Endocarditis                      :  2   NA's:  9      NA's:77       
+ CHOQUE SEPTICO/LISIS TUMORAL      :  1                               
+ CHOQUE SEPTICO/cardiog<U+00E8>nico:  1                               
+ (Other)                           :  5                               
+ NA's                              :112                               
+"

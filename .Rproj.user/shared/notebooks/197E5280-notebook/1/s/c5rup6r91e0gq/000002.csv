@@ -1,0 +1,6 @@
+"0","```r
+# view dimensions
+dim(datos) # Rows Columns
+```"
+"1","[1] 131 142
+"

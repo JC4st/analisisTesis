@@ -1,0 +1,195 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdow]---
+title: "Tesis"
+output:
+  html_notebook: default
+  html_document: default
+  pdf_document: default
+---
+```{r include = FALSE}
+# Paso 1: Source + library  ####
+
+library("e1071")
+library("dplyr")
+library("xlsx")
+library("pastecs")
+library("OptimalCutpoints")
+library("ggplot2")
+library("lubridate")
+library("readxl")
+library("psych")
+library("gmodels")
+library("openintro")
+suppressPackageStartupMessages(library("dplyr"))
+```
+
+
+
+```{r include = FALSE}
+# Paso 2 obtencion de datos
+base <- read_excel(
+        "~/OneDrive - Universidad del rosario/projects/Tesis/base.xlsx",
+    col_types = c("text", "text", "numeric",
+        "text", "numeric", "numeric", "numeric",
+        "text", "text", "text", "text", "text",
+        "text", "text", "text", "text", "text",
+        "numeric", "numeric", "numeric",
+        "numeric", "numeric", "text", "text",
+        "text", "text", "text", "text", "text",
+        "text", "text", "date", "text", "numeric",
+        "numeric", "numeric", "numeric",
+        "numeric", "numeric", "numeric",
+        "numeric", "numeric", "numeric",
+        "numeric", "numeric", "numeric",
+        "text", "text", "numeric", "numeric",
+        "text", "date", "numeric", "date",
+        "text", "date", "date"))
+View(base)
+
+datos <- as.data.frame(base)
+
+datos <- datos[sapply(datos, function(datos) !any(is.na(datos)))]
+
+```
+#Limpiar datos
+##Ver las primeras 6 filas
+```{r}
+# View the first 6 rows of data
+head(datos)
+```
+
+##Ver las ultimas 6 filas
+```{r}
+# View the last 6 rows of data
+tail(datos)
+
+```
+
+##Ver un resumen condensado de los datos
+```{r}
+#  View a condensed summary of the data
+glimpse(datos)
+```
+
+##Ver la clase
+```{r}
+# View its class
+class(datos) #data.frame
+```
+
+##Dimensiones
+```{r}
+# view dimensions
+dim(datos) # Rows Columns
+```
+
+## Nombre de las variables
+```{r include = TRUE}
+# #Look at column names
+names(datos)
+```
+
+```{r include = FALSE}
+characters <- sapply(datos, is.character)
+datos[characters] <- lapply(datos[characters], as.factor)
+###################
+### Ordenar niveles
+###################
+# datos$ascitis <- ordered(datos$ascitis,
+#                          levels = c("NO",
+#                                     "Grado 1: Leve",
+#                                     "Grado 2: Moderada",
+#                                     "Grado 3: Severa")
+#                           labels = c("NO",
+#                                      "Grado 1: Leve",
+#                                      "Grado 2: Moderada",
+#                                      "Grado 3: Severa")
+#                          )
+```
+
+##Ver resumen
+```{r include = TRUE}
+# # view a summary
+descriptivoCategorico <- summary(datos)
+descriptivoCategorico
+
+write.xlsx(descriptivoCategorico,
+           "/Users/Juan/OneDrive - Universidad del rosario/projects/Tesis/resultados/descriptivoCategorico.xlsx",
+           sheetName = "puntosDeCorte",
+           append = FALSE)
+
+descriptivoContinuo <- describe(datos)
+descriptivoContinuo
+
+write.xlsx(descriptivoContinuo,
+           "/Users/Juan/OneDrive - Universidad del rosario/projects/Tesis/resultados/descriptivoContinuo.xlsx",
+           sheetName = "puntosDeCorte",
+           append = FALSE)
+```
+
+Descriptivo por LRA
+```{r}
+descriptivoLRA <- describe.by(datos, datos$LRA)
+descriptivoLRA
+write.xlsx(descriptivoLRA$NO,
+           "/Users/Juan/OneDrive - Universidad del rosario/projects/Tesis/resultados/descriptivoLRA.xlsx",
+           sheetName = "NO",
+           append = FALSE)
+write.xlsx(descriptivoLRA$SI,
+           "/Users/Juan/OneDrive - Universidad del rosario/projects/Tesis/resultados/descriptivoLRA.xlsx",
+           sheetName = "SI",
+           append = TRUE)
+```
+
+
+```{r }
+#################################
+# Funci[on para datos categoricos
+#################################
+frequenciesCrosstabs <- function( dependiente = dependiente,
+                                independiente = independiente )
+{
+      library(gmodels)
+      dependiente.independiente <- table(independiente, dependiente)
+      dependiente.independiente <- addmargins(dependiente.independiente) # Adding row/col margins
+      tabla <- CrossTable(independiente, dependiente,
+              format=c("SPSS"), digits=1)
+      chi2 <- chisq.test(dependiente.independiente) # Do chisq test Ho: no relathionship
+      #fisher <- fisher.test(dependiente.independiente) # Do fisher'exact test Ho: no relationship
+      x <- list(tabla, chi2 )
+      names(x) <- c("tabla", "chi2")
+      x
+}
+
+frequenciesCrosstabs(datos$LRA, datos$HTA)
+frequenciesCrosstabs(datos$LRA, datos$DM)
+frequenciesCrosstabs(datos$LRA, datos$EPOC)
+frequenciesCrosstabs(datos$LRA, datos$ERC)
+frequenciesCrosstabs(datos$LRA, datos$cardiopatiaIsquemica)
+frequenciesCrosstabs(datos$LRA, datos$valvulopatia)
+frequenciesCrosstabs(datos$LRA, datos$enferemdadAutoinmune)
+frequenciesCrosstabs(datos$LRA, datos$MELD)
+frequenciesCrosstabs(datos$LRA, datos$hipotension)
+frequenciesCrosstabs(datos$LRA, datos$soporteVasopresor)
+# LRA.HTA <- table(datos$LRA,datos$HTA)
+# LRA.HTA <- addmargins(LRA.HTA) # Adding row/col margins
+# CrossTable(datos$LRA,datos$HTA, format=c("SPSS"), digits=1)
+# chisq.test(LRA.HTA) # Do chisq test Ho: no relathionship
+# fisher.test(LRA.HTA) # Do fisher'exact test Ho: no relationship
+#
+# LRA.DM <- table(datos$LRA,datos$DM)
+# LRA.DM <- addmargins(LRA.DM) # Adding row/col margins
+# CrossTable(datos$LRA,datos$DM, format=c("SPSS"), digits=1)
+# chisq.test(LRA.DM) # Do chisq test Ho: no relathionship
+# fisher.test(LRA.DM) # Do fisher'exact test Ho: no relationship
+#
+# LRA.DM <- table(datos$LRA,datos$DM)
+# LRA.DM <- addmargins(LRA.DM) # Adding row/col margins
+# CrossTable(datos$LRA,datos$DM, format=c("SPSS"), digits=1)
+# chisq.test(LRA.DM) # Do chisq test Ho: no relathionship
+# fisher.test(LRA.DM) # Do fisher'exact test Ho: no relationship
+```

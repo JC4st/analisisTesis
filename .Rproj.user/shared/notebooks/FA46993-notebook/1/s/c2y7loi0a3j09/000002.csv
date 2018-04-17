@@ -1,0 +1,21 @@
+"0","dput(names(datos))"
+"1","c(""ID"", ""historia"", ""edad"", ""sexo"", ""peso"", ""talla"", ""IMC"", ""HTA"", 
+"
+"1","""DM"", ""EPOC"", ""HTP"", ""ERC"", ""cardiopatiaIsquemica"", ""valvulopatia"", 
+"
+"1","""enferemdadAutoinmune"", ""indicacionTrasplanteCronico"", ""indicacionTrasplanteAgudo"", 
+"
+"1","""creatinina"", ""bilirrubinaTotal"", ""PT"", ""INR"", ""albumina"", ""MELD"", 
+"
+"1","""CP"", ""hospitalizado"", ""hospitalizacionPrevia"", ""encefalopatia"", 
+"
+"1","""ascitis"", ""infeccionPrevia"", ""murteDelDonante"", ""infeccionDelDonante"", 
+"
+"1","""fechaDelTrasplante"", ""esquemaInmunosupresor"", ""diasHospitalizacion"", 
+"
+"1","""otraCausaIndicacionCronica"", ""otracasuaIndicacionAguda"", ""otrasCausasDeMuerteDonante"", 
+"
+"1","""otrosDatos"", ""cuasaMuerte"", ""mortalidad"", ""mesesSobrevida"", 
+"
+"1","""year"")
+"

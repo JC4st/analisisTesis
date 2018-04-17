@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "frequenciesCrosstabs <- function( dependiente = dependiente, independiente = independiente ) \n{\n      library(gmodels)\n      dependiente.independiente <- table(dependiente, independiente)\n      dependiente.independiente <- addmargins(dependiente.independiente) # Adding row/col margins\n      tabla <- CrossTable(dependiente,independiente, format=c(\"SPSS\"), digits=1)\n      chi2 <- chisq.test(dependiente.independiente) # Do chisq test Ho: no relathionship\n      fisher <- fisher.test(dependiente.independiente) # Do fisher'exact test Ho: no relationship\n      x <- list(tabla, chi2, fisher )\n      names(x) <- c(\"tabla\", \"chi2\", \"fisher\")\n      x\n}\n\nfrequenciesCrosstabs(datos$LRA, datos$HTA)\n\n#glm(LRA ~. -ID -historia,family=binomial(link='logit'),data=datos)\n\n\nsummary(glm(LRA ~ ascitis + edad, data = datos, family = \"binomial\"))\n\nc(\"ID\", \"historia\", \"edad\", \"sexo\", \"peso\", \"talla\", \"IMC\", \"HTA\", \n  \"DM\", \"EPOC\", \"HTP\", \"ERC\", \"cardiopatiaIsquemica\", \"valvulopatia\", \n  \"enferemdadAutoinmune\", \"indicacionTrasplanteCronico\", \"indicacionTrasplanteAgudo\", \n  \"creatinina\", \"bilirrubinaTotal\", \"PT\", \"INR\", \"albumina\", \"MELD\", \n  \"CP\", \"hospitalizado\", \"hospitalizacionPrevia\", \"encefalopatia\", \n  \"ascitis\", \"infeccionPrevia\", \"murteDelDonante\", \"infeccionDelDonante\", \n  \"fechaDelTrasplante\", \"esquemaInmunosupresor\", \"diasHospitalizacion\", \n  \"otraCausaIndicacionCronica\", \"otracasuaIndicacionAguda\", \"otrasCausasDeMuerteDonante\", \n  \"otrosDatos\", \"cuasaMuerte\", \"mortalidad\", \"mesesSobrevida\", \n  \"year\", \"tiempoQuirurgico\", \"tiempoDeIsquemiaFria\", \"tiempoDeIsquemiaTibia\", \n  \"faseAnhepatica\", \"bypassVenovenoso\", \"cristaloides\", \"coloides\", \n  \"UGRE\", \"PFC\", \"CUP\", \"crioprecipitado\", \"sodio\", \"bilirrubinas\", \n  \"hipotension\", \"soporteVasopresor\", \"hemoglobina\", \"creatininaBasal\", \n  \"LRA\", \"fechaLRA\", \"creatininaMaxima\", \"Max\", \"TRR\", \"fechaTRR\", \n  \"censura\")\n\nlibrary(Amelia)\nmissmap(datos, main = \"Missing values vs observed\")",
+    "created" : 1523590795472.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1582112535",
+    "id" : "B380C585",
+    "lastKnownWriteTime" : 1523670254,
+    "last_content_update" : 1523670254204,
+    "path" : "~/OneDrive - Universidad del rosario/projects/Tesis/analisisTesis/script.R",
+    "project_path" : "script.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
